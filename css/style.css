@@ -2,17 +2,18 @@ body {
   background-color: black;
   color: rgba(255,255,255,0.8);
 }
-
-#landing {
+#landing{
   height: 100vh;
-  background-image: url('URL');
+  background-image: url("/img/background2.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   z-index: -1;
 }
-
+#mainText{
+  margin-top: 30vh;
+}
 #mainText {
   margin-top: 30vh;
 }
