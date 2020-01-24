@@ -1,12 +1,12 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, link } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import './App.css';
 
 import Footer from './Components/Footer';
-import Homepage from './Pages/HomePage'
+import HomePage from './Pages/HomePage';
 import ContactPage from './Pages/ContactPage';
 import AboutPage from './Pages/AboutPage';
 
@@ -58,8 +58,8 @@ class App extends React.Component {
           <Route path="/about" render={() => <AboutPage title={this.state.home.title} subTitle={this.state.about.title} />} />
           <Route path='/contact' render={() => <ContactPage title={this.state.contact.title} />} />
 
-          </Footer />
-          </Container />
+          <Footer />
+          <Container />
           </Router>
 
     );
