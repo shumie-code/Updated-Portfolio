@@ -59,7 +59,7 @@ class App extends React.Component {
           <Route path='/contact' render={() => <ContactPage title={this.state.contact.title} />} />
 
           <Footer />
-          <Container />
+          </Container>
           </Router>
 
     );
