@@ -1,12 +1,16 @@
 import React from "react";
 
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+
 import Hero from "../components/Hero";
 import Content from "../components/Content";
+import Axios from "axios";
 
-import Form from "react-bootstrap/Form";
-import Button from 'react-bootstrap/Button';
 
-class ContactPage extends React.component {
+
+class ContactPage extends React.Component {
+ 
   constructor(props) {
     super(props);
     this.state = {
@@ -14,16 +18,14 @@ class ContactPage extends React.component {
       email: "",
       message: "",
       disabled: false,
-      emailSent: null
-    };
+      emailSent: null,
+    }
   }
 
-
-  handleChange = (event) => {
+  handleChange = event => {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name; 
-
+    const name = target.name;
 
     this.setState({
       [name]: value
@@ -35,6 +37,29 @@ class ContactPage extends React.component {
 
     this.setState({
       disabled: true
+    });
+
+    Axios.post('http://localhost:3030/api/email', this.state)
+    .then(res => {
+      if(res.data.success) {
+        this.setState({
+          disabled: false,
+          emailSent: true
+        });
+      } else {
+        this.setState({
+          disabled: false,
+          emailSent: false
+        });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+
+      this.setState({
+        disabled: false,
+        emailSent: false
+      });
     })
   }
 
@@ -46,7 +71,7 @@ class ContactPage extends React.component {
         <Content>
           <Form onSubmit={this.handleSubmit}>
             <Form.Group>
-              <Form.Label htmlFor="">Full Name</Form.Label>
+              <Form.Label htmlFor="full-name">Full Name</Form.Label>
               <Form.Control
                 id="full-name"
                 name="name"
@@ -57,7 +82,7 @@ class ContactPage extends React.component {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label htmlFor="">Email</Form.Label>
+              <Form.Label htmlFor="email">Email</Form.Label>
               <Form.Control
                 id="email"
                 name="email"
@@ -68,7 +93,7 @@ class ContactPage extends React.component {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label htmlFor="">Message</Form.Label>
+              <Form.Label htmlFor="message">Message</Form.Label>
               <Form.Control
                 id="message"
                 name="message"
@@ -79,13 +104,21 @@ class ContactPage extends React.component {
               />
             </Form.Group>
 
-            <Button className="d-inline-block" variant="success" type="submit" disabled={this.state.disabled}>
+            <Button
+              className="d-inline-block"
+              variant="primary"
+              type="submit"
+              disabled={this.state.disabled}
+            >
               Send
             </Button>
 
-
-            {this.state.emailSent === true && <p className="d-inline success-msg">Email Sent</p>}
-            {this.state.emailSent === false && <p className="d-inline error-msg">Email Not Sent</p>}
+            {this.state.emailSent === true && 
+              <p className="d-inline success-msg">Email Sent</p>
+            }
+            {this.state.emailSent === false && 
+              <p className="d-inline error-msg">Email Not Sent</p>
+            }
           </Form>
         </Content>
       </div>
