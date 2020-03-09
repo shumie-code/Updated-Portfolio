@@ -4,7 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Card from './Card';
 import bamazon from '../assets/Images/bamazon.png';
 import click from '../assets/Images/click.png';
-import scraper from '../assets/Images/scraper.png';
+import docker from '../assets/Images/docker.png';
+import liri from '../assets/Images/liri.png'; 
 import Container from 'react-bootstrap/Container';
 
 
@@ -24,10 +25,10 @@ class Carousel extends React.Component {
                 },
                 {
                     id: 1,
-                    title: 'MongoWebScrapper',
-                    subTitle: 'Real-Time web scrapper for tech news from The Verge',
-                    imgSrc: scraper,
-                    link: 'https://tech-scrapers.herokuapp.com/',
+                    title: 'Docker Container',
+                    subTitle: 'React application deployed to a Docker container',
+                    imgSrc: docker,
+                    link: 'https://hub.docker.com/r/shumiedocker/node',
                     selected: false
                 },
                 {
@@ -37,7 +38,16 @@ class Carousel extends React.Component {
                     imgSrc: bamazon,
                     link: 'https://github.com/shumie-code/Bamazon',
                     selected: false
-                }
+                },
+                {
+                    id: 3,
+                    title: 'Liri-Bot',
+                    subTitle: 'CLI app that calls spotify api for song and artist information',
+                    imgSrc: liri,
+                    link: 'https://github.com/shumie-code/liri-bot',
+                    selected: false
+                },
+
             ]
         }
     }

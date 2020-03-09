@@ -8,8 +8,12 @@ function AboutPage(props) {
         <div>
             <Hero title={props.title}/>
             <Content>
-                <p>Designing powerful, dynamic, data driven & responsive applications. Forward thinking and actively learning new computer languages for future implementation.</p>
-                <p>Backed by an active and growing portfolio that demonstrates diligent and astute programming for applications on the modern web. Active communicator and team focused professional.</p>
+              <p>I would describe myself as a computer-science enthusiast with a focus on Functional-Programming, primarily as it pertains to JavaScript.
+                 I am also familiar with the Object-Oriented-Programming paradigm along with both imperative and declarative programming styles. 
+                 Currently, I am focusing on advancing my conceptual & practical ability in JavaScript, JSX, TypeScript along with ML neural networks such as Tensor-Flow.
+                 I have written applications in vanilla JavaScript and leveraged frameworks such as React in others. Learning front end frameworks such as Angular for larger-scale enterprise development at the current moment.
+                 Day to day I try & challenge myself to create full-stack applications that are deployed using the multitude of dev-op tools available: Docker, Heroku, AWS, MongoDB, SQL & Travis for Continuous Integration. 
+                 When im not working on projects or reading, I spend a lot of time reading on Dev-To and Medium to search for new projects to work on & the different directions developers are taking to create new software and cross-platform applications.</p>
             </Content>
         </div>
     );
